@@ -1,228 +1,227 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-/* Quattrocento – latin-ext 400 */
-@font-face {
-  font-family: "Quattrocento";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("https://fonts.gstatic.com/s/quattrocento/v24/OZpEg_xvsDZQL_LKIF7q4jP3zWj6T4g.woff2") format("woff2");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* Quattrocento – latin 400 */
-@font-face {
-  font-family: "Quattrocento";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("https://fonts.gstatic.com/s/quattrocento/v24/OZpEg_xvsDZQL_LKIF7q4jP3w2j6.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* Quattrocento – latin-ext 700 */
-@font-face {
-  font-family: "Quattrocento";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("https://fonts.gstatic.com/s/quattrocento/v24/OZpbg_xvsDZQL_LKIF7q4jP_eE3vfqnYgXc.woff2") format("woff2");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* Quattrocento – latin 700 */
-@font-face {
-  font-family: "Quattrocento";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("https://fonts.gstatic.com/s/quattrocento/v24/OZpbg_xvsDZQL_LKIF7q4jP_eE3vcKnY.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-/* Figtree – latin-ext */
-@font-face {
-  font-family: "Figtree";
-  font-style: normal;
-  font-weight: 400 700;
-  font-display: swap;
-  src: url("https://fonts.gstatic.com/s/figtree/v9/_Xms-HUzqDCFdgfMm4q9DbZs.woff2") format("woff2");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* Figtree – latin */
-@font-face {
-  font-family: "Figtree";
-  font-style: normal;
-  font-weight: 400 700;
-  font-display: swap;
-  src: url("https://fonts.gstatic.com/s/figtree/v9/_Xms-HUzqDCFdgfMm4S9DQ.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
+/* ─────────────────────────────────────────────
+   Brand: Deep Current
+   Typefaces loaded via <link> in BaseLayout.astro
+   (Literata for display, Manrope for body/UI)
+   ───────────────────────────────────────────── */
 
 @theme {
-  --font-heading: "Quattrocento", Georgia, "Times New Roman", serif;
-  --font-body: "Figtree", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Literata", Georgia, "Times New Roman", serif;
+  --font-body: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-  --color-bg-dark: #0a0a0a;
-  --color-bg-light: #f4f1e8;
-  --color-accent: #c85a2b;
-  --color-accent-hover: #b44920;
-  --color-text-dark: #fafafa;
-  --color-text-light: #0a0a0a;
-  --color-muted-dark: #a1a1aa;
-  --color-muted-light: #71717a;
-  --color-border-dark: rgba(255, 255, 255, 0.08);
-  --color-border-light: rgba(0, 0, 0, 0.08);
-  --color-surface-dark: #141414;
-  --color-surface-light: #eeede8;
+  /* Palette — Deep Current */
+  --color-base: #f0efeb;          /* Limestone — page bg, 60% */
+  --color-neutral: #d2d4d0;       /* Mist — borders, dividers */
+  --color-primary: #4e6a78;       /* Current — nav, eyebrows, 30% */
+  --color-accent: #bf7e4a;        /* Copper — CTAs, links, 10% */
+  --color-accent-hover: #a86a3c;  /* Darker Copper for hover */
+  --color-anchor: #262b2e;        /* Ink — headings, dark surfaces */
+  --color-body: #555859;          /* Body text */
+  --color-body-light: #7a7d7f;    /* Secondary text */
+
+  --color-primary-faint: rgba(78, 106, 120, 0.08);
+  --color-accent-faint: rgba(191, 126, 74, 0.10);
+
+  /* Light-mode semantic aliases (current Tailwind utilities still resolve) */
+  --color-bg: var(--color-base);
+  --color-text: var(--color-anchor);
+  --color-muted: var(--color-body);
+  --color-border: var(--color-neutral);
+  --color-surface: #ffffff;
 }
 
-/* Dark mode default */
+/* ─────────────────────────────────────────────
+   Light mode (default)
+   ───────────────────────────────────────────── */
 html {
-  background-color: var(--color-bg-dark);
-  background-image: 
-    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.01) 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.005) 0%, transparent 50%);
+  background-color: var(--color-base);
+  background-image:
+    radial-gradient(ellipse at top right, rgba(78, 106, 120, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at bottom left, rgba(191, 126, 74, 0.04) 0%, transparent 60%);
   background-attachment: fixed;
-  color: var(--color-text-dark);
+  color: var(--color-anchor);
   font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-html.light {
-  background-color: var(--color-bg-light);
-  background-image: 
-    radial-gradient(circle at 20% 80%, rgba(139, 69, 19, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(160, 82, 45, 0.02) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(139, 69, 19, 0.01) 0%, transparent 50%);
+/* ─────────────────────────────────────────────
+   Dark mode (toggleable)
+   Ink bg + Limestone-87% text; Current and Copper unchanged
+   ───────────────────────────────────────────── */
+html.dark {
+  --color-bg: var(--color-anchor);
+  --color-text: rgba(240, 239, 235, 0.92);
+  --color-muted: rgba(240, 239, 235, 0.62);
+  --color-border: rgba(240, 239, 235, 0.10);
+  --color-surface: #2f3437;
+
+  background-color: var(--color-anchor);
+  background-image:
+    radial-gradient(ellipse at top right, rgba(78, 106, 120, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse at bottom left, rgba(191, 126, 74, 0.10) 0%, transparent 60%);
   background-attachment: fixed;
-  color: var(--color-text-light);
+  color: var(--color-text);
 }
 
-/* Headings */
+/* ─────────────────────────────────────────────
+   Typography (per brand guide type scale)
+   ───────────────────────────────────────────── */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.15;
   letter-spacing: -0.02em;
 }
 
-/* Selection */
-::selection {
-  background-color: var(--color-accent);
-  color: white;
+h2 {
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
-/* Scrollbar */
+h3 {
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+h4 {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-body);
+}
+html.dark p {
+  color: var(--color-text);
+}
+
+.lead {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--color-body);
+}
+html.dark .lead {
+  color: var(--color-text);
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+/* ─────────────────────────────────────────────
+   Utility classes (theme-aware)
+   ───────────────────────────────────────────── */
+.bg-surface {
+  background-color: var(--color-surface);
+}
+
+.text-muted {
+  color: var(--color-body-light);
+}
+html.dark .text-muted {
+  color: var(--color-muted);
+}
+
+.border-subtle {
+  border-color: var(--color-border);
+}
+
+/* Show/hide based on theme — used for theme-paired assets like the logo */
+.dark-only { display: none; }
+html.dark .dark-only { display: initial; }
+html.dark .light-only { display: none; }
+
+/* ─────────────────────────────────────────────
+   Selection, scrollbar, focus
+   ───────────────────────────────────────────── */
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-base);
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-dark);
+  background: var(--color-base);
 }
-html.light ::-webkit-scrollbar-track {
-  background: var(--color-bg-light);
+html.dark ::-webkit-scrollbar-track {
+  background: var(--color-anchor);
 }
 ::-webkit-scrollbar-thumb {
-  background: #c85a2b;
+  background: var(--color-primary);
   border-radius: 4px;
 }
-html.light ::-webkit-scrollbar-thumb {
-  background: #c85a2b;
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
 }
 
-/* --- Theme utility classes --- */
-.bg-surface {
-  background-color: var(--color-surface-dark);
-}
-html.light .bg-surface {
-  background-color: var(--color-surface-light);
+*:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
-.text-muted {
-  color: var(--color-muted-dark);
-}
-html.light .text-muted {
-  color: var(--color-muted-light);
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  scroll-behavior: smooth;
 }
 
-.border-subtle {
-  border-color: var(--color-border-dark);
-}
-html.light .border-subtle {
-  border-color: var(--color-border-light);
-}
-
-/* --- Prose overrides --- */
+/* ─────────────────────────────────────────────
+   Prose (Tailwind Typography overrides)
+   ───────────────────────────────────────────── */
 .prose {
-  --tw-prose-body: var(--color-text-dark);
-  --tw-prose-headings: var(--color-text-dark);
+  --tw-prose-body: var(--color-body);
+  --tw-prose-headings: var(--color-anchor);
   --tw-prose-links: var(--color-accent);
-  --tw-prose-bold: var(--color-text-dark);
-  --tw-prose-quotes: var(--color-muted-dark);
-  --tw-prose-code: var(--color-text-dark);
-  --tw-prose-hr: var(--color-border-dark);
-  --tw-prose-th-borders: var(--color-border-dark);
-  --tw-prose-td-borders: var(--color-border-dark);
+  --tw-prose-bold: var(--color-anchor);
+  --tw-prose-quotes: var(--color-body-light);
+  --tw-prose-code: var(--color-anchor);
+  --tw-prose-hr: var(--color-neutral);
+  --tw-prose-th-borders: var(--color-neutral);
+  --tw-prose-td-borders: var(--color-neutral);
 }
 
-html.light .prose {
-  --tw-prose-body: var(--color-text-light);
-  --tw-prose-headings: var(--color-text-light);
-  --tw-prose-bold: var(--color-text-light);
-  --tw-prose-quotes: var(--color-muted-light);
-  --tw-prose-code: var(--color-text-light);
-  --tw-prose-hr: var(--color-border-light);
-  --tw-prose-th-borders: var(--color-border-light);
-  --tw-prose-td-borders: var(--color-border-light);
+html.dark .prose {
+  --tw-prose-body: var(--color-text);
+  --tw-prose-headings: var(--color-text);
+  --tw-prose-bold: var(--color-text);
+  --tw-prose-quotes: var(--color-muted);
+  --tw-prose-code: var(--color-text);
+  --tw-prose-hr: var(--color-border);
+  --tw-prose-th-borders: var(--color-border);
+  --tw-prose-td-borders: var(--color-border);
 }
 
-/* Blockquotes */
 .prose blockquote {
   border-left-color: var(--color-accent);
   font-style: italic;
 }
 
-/* Code blocks */
-.prose pre {
-  background-color: var(--color-surface-dark) !important;
-  border-radius: 0.5rem;
-  border: 1px solid var(--color-border-dark);
-}
-html.light .prose pre {
-  background-color: #1e1e2e !important;
-  color: #cdd6f4 !important;
-}
-
-.prose code:not(pre code) {
-  background-color: var(--color-surface-dark);
-  padding: 0.15em 0.35em;
-  border-radius: 0.25rem;
-  font-size: 0.875em;
-}
-html.light .prose code:not(pre code) {
-  background-color: var(--color-surface-light);
-}
-
-/* Images in prose */
-.prose img {
-  border-radius: 0.75rem;
-}
-
-/* Wide image */
-.prose .img-wide {
-  width: 100vw;
-  max-width: 1100px;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  border-radius: 0.75rem;
-}
-
-/* Full bleed image */
-.prose .img-full {
-  width: 100vw;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  border-radius: 0;
-}
-
-/* Links */
 .prose a {
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -232,13 +231,35 @@ html.light .prose code:not(pre code) {
   color: var(--color-accent-hover);
 }
 
-/* Focus styles */
-*:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
+.prose pre {
+  background-color: var(--color-anchor) !important;
+  color: var(--color-base) !important;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-border);
 }
 
-/* Transition for theme changes */
-html {
-  transition: background-color 0.3s ease, color 0.3s ease;
+.prose code:not(pre code) {
+  background-color: var(--color-primary-faint);
+  padding: 0.15em 0.35em;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+.prose img {
+  border-radius: 0.75rem;
+}
+
+.prose .img-wide {
+  width: 100vw;
+  max-width: 1100px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0.75rem;
+}
+
+.prose .img-full {
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0;
 }

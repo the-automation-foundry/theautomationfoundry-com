@@ -7,7 +7,7 @@
   data-netlify="true"
   netlify-honeypot="bot-field"
   action="/contact/success"
-  class="max-w-xl space-y-6"
+  class="max-w-xl space-y-6 p-8 md:p-10 rounded-xl border bg-surface border-subtle shadow-sm"
 >
   <input type="hidden" name="form-name" value="contact" />
   <p class="hidden">
@@ -15,7 +15,7 @@
   </p>
 
   <div>
-    <label for="name" class="block text-sm font-medium uppercase tracking-wider text-muted mb-2">
+    <label for="name" class="block text-xs font-medium tracking-widest uppercase mb-2" style="color: var(--color-primary);">
       Name
     </label>
     <input
@@ -23,13 +23,14 @@
       id="name"
       name="name"
       required
-      class="w-full px-4 py-3 bg-surface border border-subtle rounded-lg text-inherit placeholder:text-muted/50 focus:ring-2 focus:ring-[var(--color-accent)] focus:border-transparent transition-all"
+      class="w-full px-4 py-3 rounded-md border bg-transparent text-inherit placeholder:opacity-50 focus:ring-2 focus:ring-[var(--color-accent)] focus:border-transparent transition-all"
+      style="border-color: var(--color-border); color: var(--color-text);"
       placeholder="Your name"
     />
   </div>
 
   <div>
-    <label for="email" class="block text-sm font-medium uppercase tracking-wider text-muted mb-2">
+    <label for="email" class="block text-xs font-medium tracking-widest uppercase mb-2" style="color: var(--color-primary);">
       Email
     </label>
     <input
@@ -37,13 +38,14 @@
       id="email"
       name="email"
       required
-      class="w-full px-4 py-3 bg-surface border border-subtle rounded-lg text-inherit placeholder:text-muted/50 focus:ring-2 focus:ring-[var(--color-accent)] focus:border-transparent transition-all"
+      class="w-full px-4 py-3 rounded-md border bg-transparent text-inherit placeholder:opacity-50 focus:ring-2 focus:ring-[var(--color-accent)] focus:border-transparent transition-all"
+      style="border-color: var(--color-border); color: var(--color-text);"
       placeholder="you@example.com"
     />
   </div>
 
   <div>
-    <label for="message" class="block text-sm font-medium uppercase tracking-wider text-muted mb-2">
+    <label for="message" class="block text-xs font-medium tracking-widest uppercase mb-2" style="color: var(--color-primary);">
       Message
     </label>
     <textarea
@@ -51,14 +53,18 @@
       name="message"
       rows="5"
       required
-      class="w-full px-4 py-3 bg-surface border border-subtle rounded-lg text-inherit placeholder:text-muted/50 focus:ring-2 focus:ring-[var(--color-accent)] focus:border-transparent transition-all resize-y"
-      placeholder="Tell us about your project..."
+      class="w-full px-4 py-3 rounded-md border bg-transparent text-inherit placeholder:opacity-50 focus:ring-2 focus:ring-[var(--color-accent)] focus:border-transparent transition-all resize-y"
+      style="border-color: var(--color-border); color: var(--color-text);"
+      placeholder="A few sentences about what you're working on…"
     ></textarea>
   </div>
 
   <button
     type="submit"
-    class="px-6 py-3 bg-[var(--color-accent)] text-white rounded-lg font-medium text-sm uppercase tracking-wide hover:bg-[var(--color-accent-hover)] transition-colors"
+    class="px-6 py-3 rounded-md font-medium text-xs uppercase tracking-widest transition-colors text-white"
+    style="background-color: var(--color-accent);"
+    onmouseover="this.style.backgroundColor='var(--color-accent-hover)'"
+    onmouseout="this.style.backgroundColor='var(--color-accent)'"
   >
     Send Message
   </button>

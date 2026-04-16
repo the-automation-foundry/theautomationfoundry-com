@@ -1,0 +1,103 @@
+---
+interface Props {
+  variant?: 'lockup' | 'icon';
+  theme?: 'light' | 'dark' | 'primary';
+  width?: number;
+  class?: string;
+  ariaLabel?: string;
+}
+
+const {
+  variant = 'lockup',
+  theme = 'light',
+  width,
+  class: className = '',
+  ariaLabel = 'The Automation Foundry',
+} = Astro.props;
+
+// Stroke + hatch colors per the brand guide:
+// - On light bg: Ink stroke, Current hatch
+// - On dark bg:  Limestone stroke, Copper hatch
+// - On primary:  Limestone stroke, Copper hatch
+const isLightBg = theme === 'light';
+const strokeColor = isLightBg ? '#262B2E' : '#F0EFEB';
+const hatchColor = isLightBg ? '#4E6A78' : '#BF7E4A';
+const wordmarkColor = isLightBg ? '#262B2E' : '#F0EFEB';
+const badgeColor = isLightBg ? '#4E6A78' : '#BF7E4A';
+const badgeTextColor = isLightBg ? '#F0EFEB' : '#262B2E';
+
+const uid = Math.random().toString(36).slice(2, 9);
+const lockupWidth = width ?? 200;
+const iconWidth = width ?? 48;
+---
+
+{variant === 'lockup' ? (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 357 120"
+    width={lockupWidth}
+    role="img"
+    aria-label={ariaLabel}
+    class={className}
+  >
+    <defs>
+      <pattern id={`hatch-${uid}`} patternUnits="userSpaceOnUse" width="5" height="5" patternTransform="rotate(60)">
+        <line x1="0" y1="0" x2="0" y2="5" stroke={hatchColor} stroke-width="3" />
+      </pattern>
+      <clipPath id={`clip-${uid}`}>
+        <circle cx="40.6" cy="60" r="25.6" />
+      </clipPath>
+    </defs>
+    <circle cx="72.2" cy="60" r="25.6" fill={`url(#hatch-${uid})`} clip-path={`url(#clip-${uid})`} />
+    <circle cx="40.6" cy="60" r="25.6" fill="none" stroke={strokeColor} stroke-width="3.2" />
+    <circle cx="72.2" cy="60" r="25.6" fill="none" stroke={strokeColor} stroke-width="3.2" />
+    <rect x="105.8" y="34.4" width="27.8" height="51.2" rx="3" fill={badgeColor} />
+    <g fill={badgeTextColor} transform="translate(119.8,60.0) rotate(-90) translate(-17.1,6.7)">
+      <path d="M511 0V1271H20V1440H1180V1271H689V0Z" transform="translate(0.00,0) scale(0.009354,-0.009354)" />
+      <path d="M140 0V1440H318V805H1076V1440H1254V0H1076V636H318V0Z" transform="translate(10.85,0) scale(0.009354,-0.009354)" />
+      <path d="M140 0V1440H1050V1271H318V820H930V651H318V169H1050V0Z" transform="translate(23.52,0) scale(0.009354,-0.009354)" />
+    </g>
+    <g fill={wordmarkColor}>
+      <path d="M40 0 480 1440H886L1326 0H1046L654 1270H706L320 0ZM304 300V554H1064V300Z" transform="translate(141.69,56.00) scale(0.015,-0.015)" />
+      <path d="M726 -30Q552 -30 420.0 40.5Q288 111 214.0 239.0Q140 367 140 540V1438L416 1440V542Q416 471 440.0 413.0Q464 355 506.5 313.0Q549 271 605.5 248.5Q662 226 726 226Q792 226 848.5 249.0Q905 272 947.0 314.0Q989 356 1012.5 414.0Q1036 472 1036 542V1440H1312V540Q1312 367 1238.0 239.0Q1164 111 1032.0 40.5Q900 -30 726 -30Z" transform="translate(161.58,56.00) scale(0.015,-0.015)" />
+      <path d="M474 0V1186H20V1440H1200V1186H746V0Z" transform="translate(182.76,56.00) scale(0.015,-0.015)" />
+      <path d="M758 -30Q542 -30 385.5 64.0Q229 158 144.5 327.0Q60 496 60 720Q60 944 144.5 1113.0Q229 1282 385.5 1376.0Q542 1470 758 1470Q974 1470 1130.5 1376.0Q1287 1282 1371.5 1113.0Q1456 944 1456 720Q1456 496 1371.5 327.0Q1287 158 1130.5 64.0Q974 -30 758 -30ZM758 226Q895 224 986.0 285.0Q1077 346 1122.5 458.0Q1168 570 1168 720Q1168 870 1122.5 980.0Q1077 1090 986.0 1151.0Q895 1212 758 1214Q621 1216 530.0 1155.0Q439 1094 393.5 982.0Q348 870 348 720Q348 570 393.5 460.0Q439 350 530.0 289.0Q621 228 758 226Z" transform="translate(200.46,56.00) scale(0.015,-0.015)" />
+      <path d="M140 0V1440H384L860 484L1336 1440H1580V0H1326V860L908 0H812L394 860V0Z" transform="translate(222.60,56.00) scale(0.015,-0.015)" />
+      <path d="M40 0 480 1440H886L1326 0H1046L654 1270H706L320 0ZM304 300V554H1064V300Z" transform="translate(247.80,56.00) scale(0.015,-0.015)" />
+      <path d="M474 0V1186H20V1440H1200V1186H746V0Z" transform="translate(267.69,56.00) scale(0.015,-0.015)" />
+      <path d="M160 0V1440H432V0Z" transform="translate(285.39,56.00) scale(0.015,-0.015)" />
+      <path d="M758 -30Q542 -30 385.5 64.0Q229 158 144.5 327.0Q60 496 60 720Q60 944 144.5 1113.0Q229 1282 385.5 1376.0Q542 1470 758 1470Q974 1470 1130.5 1376.0Q1287 1282 1371.5 1113.0Q1456 944 1456 720Q1456 496 1371.5 327.0Q1287 158 1130.5 64.0Q974 -30 758 -30ZM758 226Q895 224 986.0 285.0Q1077 346 1122.5 458.0Q1168 570 1168 720Q1168 870 1122.5 980.0Q1077 1090 986.0 1151.0Q895 1212 758 1214Q621 1216 530.0 1155.0Q439 1094 393.5 982.0Q348 870 348 720Q348 570 393.5 460.0Q439 350 530.0 289.0Q621 228 758 226Z" transform="translate(293.67,56.00) scale(0.015,-0.015)" />
+      <path d="M140 0V1440H416L1042 480V1440H1318V0H1042L416 960V0Z" transform="translate(315.81,56.00) scale(0.015,-0.015)" />
+    </g>
+    <g fill={wordmarkColor}>
+      <path d="M140 0V1440H1020V1168H412V856H900V584H412V0Z" transform="translate(141.69,85.60) scale(0.015,-0.015)" />
+      <path d="M758 -30Q542 -30 385.5 64.0Q229 158 144.5 327.0Q60 496 60 720Q60 944 144.5 1113.0Q229 1282 385.5 1376.0Q542 1470 758 1470Q974 1470 1130.5 1376.0Q1287 1282 1371.5 1113.0Q1456 944 1456 720Q1456 496 1371.5 327.0Q1287 158 1130.5 64.0Q974 -30 758 -30ZM758 226Q895 224 986.0 285.0Q1077 346 1122.5 458.0Q1168 570 1168 720Q1168 870 1122.5 980.0Q1077 1090 986.0 1151.0Q895 1212 758 1214Q621 1216 530.0 1155.0Q439 1094 393.5 982.0Q348 870 348 720Q348 570 393.5 460.0Q439 350 530.0 289.0Q621 228 758 226Z" transform="translate(156.99,85.60) scale(0.015,-0.015)" />
+      <path d="M726 -30Q552 -30 420.0 40.5Q288 111 214.0 239.0Q140 367 140 540V1438L416 1440V542Q416 471 440.0 413.0Q464 355 506.5 313.0Q549 271 605.5 248.5Q662 226 726 226Q792 226 848.5 249.0Q905 272 947.0 314.0Q989 356 1012.5 414.0Q1036 472 1036 542V1440H1312V540Q1312 367 1238.0 239.0Q1164 111 1032.0 40.5Q900 -30 726 -30Z" transform="translate(179.13,85.60) scale(0.015,-0.015)" />
+      <path d="M140 0V1440H416L1042 480V1440H1318V0H1042L416 960V0Z" transform="translate(200.31,85.60) scale(0.015,-0.015)" />
+      <path d="M140 0V1440H606Q623 1440 676.0 1439.0Q729 1438 778 1432Q952 1411 1073.0 1311.0Q1194 1211 1257.0 1057.0Q1320 903 1320 720Q1320 537 1257.0 383.0Q1194 229 1073.0 129.0Q952 29 778 8Q729 2 676.0 1.0Q623 0 606 0ZM416 256H606Q633 256 679.0 257.5Q725 259 762 266Q856 285 915.5 354.0Q975 423 1003.5 520.0Q1032 617 1032 720Q1032 828 1002.5 925.0Q973 1022 913.0 1089.0Q853 1156 762 1174Q725 1182 679.0 1183.0Q633 1184 606 1184H416Z" transform="translate(221.58,85.60) scale(0.015,-0.015)" />
+      <path d="M140 0V1440H748Q769 1440 804.5 1438.5Q840 1437 868 1432Q997 1412 1079.5 1347.0Q1162 1282 1201.0 1183.5Q1240 1085 1240 964Q1240 783 1150.0 654.5Q1060 526 868 496L748 488H412V0ZM952 0 668 586 948 640 1260 0ZM412 742H736Q757 742 782.0 744.0Q807 746 828 752Q883 767 913.0 802.5Q943 838 954.5 881.5Q966 925 966 964Q966 1003 954.5 1046.5Q943 1090 913.0 1125.5Q883 1161 828 1176Q807 1182 782.0 1184.0Q757 1186 736 1186H412Z" transform="translate(242.28,85.60) scale(0.015,-0.015)" />
+      <path d="M492 0V586L0 1440H318L630 898L942 1440H1260L768 586V0Z" transform="translate(261.78,85.60) scale(0.015,-0.015)" />
+    </g>
+  </svg>
+) : (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 100 100"
+    width={iconWidth}
+    role="img"
+    aria-label={ariaLabel}
+    class={className}
+  >
+    <defs>
+      <pattern id={`hatch-${uid}`} patternUnits="userSpaceOnUse" width="4.5" height="4.5" patternTransform="rotate(60)">
+        <line x1="0" y1="0" x2="0" y2="4.5" stroke={hatchColor} stroke-width="2.6" />
+      </pattern>
+      <clipPath id={`clip-${uid}`}>
+        <circle cx="39" cy="50" r="24" />
+      </clipPath>
+    </defs>
+    <circle cx="61" cy="50" r="24" fill={`url(#hatch-${uid})`} clip-path={`url(#clip-${uid})`} />
+    <circle cx="39" cy="50" r="24" fill="none" stroke={strokeColor} stroke-width="3" />
+    <circle cx="61" cy="50" r="24" fill="none" stroke={strokeColor} stroke-width="3" />
+  </svg>
+)}

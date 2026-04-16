@@ -21,6 +21,12 @@ const { title, description, image, type } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;1,7..72,300;1,7..72,400&family=Manrope:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <SEO title={title} description={description} image={image} type={type} />
   </head>
   <body class="min-h-screen flex flex-col">
@@ -30,12 +36,11 @@ const { title, description, image, type } = Astro.props;
     </main>
     <Footer />
 
-    <!-- Prevent flash of wrong theme -->
+    <!-- Prevent flash of wrong theme — light is default; dark only when stored -->
     <script is:inline>
       (function() {
-        const theme = localStorage.getItem('theme');
-        if (theme === 'light') {
-          document.documentElement.classList.add('light');
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.classList.add('dark');
         }
       })();
     </script>

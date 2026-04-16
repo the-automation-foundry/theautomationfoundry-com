@@ -1,11 +1,12 @@
 ---
 const pathname = Astro.url.pathname;
+// One-page launch (v1): only Home is linked. Restore others by uncommenting.
 const links = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/writing', label: 'Writing' },
-  { href: '/contact', label: 'Contact' },
+  // { href: '/about', label: 'About' },
+  // { href: '/projects', label: 'Projects' },
+  // { href: '/writing', label: 'Writing' },
+  // { href: '/contact', label: 'Contact' },
 ];
 
 function isActive(href: string) {
