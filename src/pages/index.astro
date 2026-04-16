@@ -1,12 +1,15 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
 import { siteGraph } from '../lib/structuredData';
+import nickProfile from '../nick-profile.jpg';
 
 const structuredData = siteGraph({
   // Add your real profile URLs once you have them — empty arrays just skip emission.
   personSameAs: [],
   orgSameAs: [],
+  portraitUrl: new URL(nickProfile.src, 'https://theautomationfoundry.com').toString(),
 });
 ---
 
@@ -20,11 +23,11 @@ const structuredData = siteGraph({
     <div class="max-w-4xl mx-auto px-6 pt-20 pb-16 md:pt-28 md:pb-24">
       <p class="eyebrow mb-4">The Automation Foundry</p>
       <h1 class="mb-6">
-        A solo digital studio helping entrepreneurs and business leaders use AI to focus, strategize, and thrive.
+        A solo digital studio helping entrepreneurs and business leaders use AI systems to go deep, get results, and thrive.
       </h1>
       <p class="lead max-w-2xl mb-8">
         <!-- DRAFT — replace with the lead paragraph we settle on. -->
-        Thoughtful systems, automation, and AI integration — built at a human pace, with the heft of craft.
+        Thoughtful, principled craftsmanship of systems, tools, agents, and training. Built together at a human pace, with a long-term mindset.
       </p>
       <a
         href="#contact"
@@ -38,38 +41,64 @@ const structuredData = siteGraph({
     </div>
   </section>
 
-  <!-- ─── Tagline strip ─── -->
-  <section class="border-y border-subtle">
-    <div class="max-w-4xl mx-auto px-6 py-10 text-center">
-      <p
+  <!-- ─── Pull quote ─── -->
+  <section class="border-y border-subtle" style="background-color: var(--color-primary-faint);">
+    <div class="max-w-3xl mx-auto px-6 py-14 md:py-16">
+      <blockquote
         class="italic"
-        style="font-family: var(--font-heading); font-size: 1.2rem; font-weight: 400; color: var(--color-anchor);"
+        style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 300; line-height: 1.65; color: var(--color-anchor); border-left: 2px solid var(--color-accent); padding-left: 1.5rem;"
       >
-        Thoughtful technology craftsmanship.
-      </p>
+        <p class="mb-3">
+          &ldquo;The world is bursting with wonder, and yet it's the rare productivity guru who seems to have considered the possibility that the ultimate point of all our frenetic doing might be to experience more of that wonder.&rdquo;
+        </p>
+        <footer class="not-italic text-xs tracking-wide" style="font-family: var(--font-body); color: var(--color-body-light); letter-spacing: 0.04em;">
+          — Oliver Burkeman, <cite class="italic">Four Thousand Weeks</cite>
+        </footer>
+      </blockquote>
     </div>
   </section>
 
   <!-- ─── Hi, I'm Nick ─── -->
   <section class="max-w-3xl mx-auto px-6 py-20 md:py-24">
     <p class="eyebrow mb-4">About</p>
-    <h2 class="mb-6">Hi, I'm Nick Parsons.</h2>
+    <h2 class="mb-8">Hi, I'm Nick Parsons.</h2>
+
+    <figure class="float-right ml-5 mb-3 w-32 md:ml-12 md:mb-6 md:w-44">
+      <Image
+        src={nickProfile}
+        alt="Nick Parsons, founder of The Automation Foundry"
+        widths={[180, 260, 360]}
+        sizes="(min-width: 768px) 180px, 128px"
+        formats={['avif', 'webp']}
+        quality={82}
+        class="rounded-lg border w-full h-auto"
+        style="border-color: var(--color-border);"
+      />
+    </figure>
+
     <p class="mb-4">
-      I'm the founder of The Automation Foundry. I like to think of myself as a craftsman of technology, bringing together the benefits of modern tech and the sturdiness of old-fashioned values and standards of excellence.
+      I like to think of myself as a craftsman of technology, bringing together the benefits of modern tech & AI with the sturdiness of old-fashioned values and standards of excellence.
     </p>
     <p class="mb-4">
-      I do a lot of thinking — sometimes to a fault, and to the extent that it's a running family joke that led my wife to jestingly buy me a t-shirt that says in large block letters, "Hold on, let me overthink this." But I believe that in this era of instant but questionable "solutions," and ratcheting pressure to go ever faster and do ever more, there's a place for deep thoughtfulness and intentionality — for slowing down to shift into a mode that's less reactive and more grounded in clarity on what really matters and where we're really going.
+      I do a lot of thinking — sometimes to a fault, and to the extent that it's a running family joke that led my wife to jestingly buy me a t-shirt that says, "Hold on, let me overthink this."
     </p>
-    <p class="mb-4 italic" style="color: var(--color-body-light);">
-      [DRAFT — "Why tech?" paragraph goes here. The bridge between the thoughtful/slow inclination and the choice to work in software + AI.]
+    <p class="mb-4">
+      But I believe that in this era of instant but questionable solutions and ratcheting pressure to go ever faster and do ever more, there's a place for deep thoughtfulness and intentionality... for slowing down to shift into a mode that's less reactive and more grounded in clarity on what really matters and where we're really going.
     </p>
+    <p class="mb-4">
+      I've loved working with computers since I was a kid, but more than that I've always loved living in the seams of things —
+      the interplay between form and function, intuition and logic, human and machine. In this new era of AI that's both exciting and scary,
+      I'm passionate about doing my best to help people navigate it thoughtfully, and hopefully get more out of work & life as a result. 
+    </p>
+
+    <div class="clear-both"></div>
   </section>
 
   <!-- ─── What I believe ─── -->
   <section class="border-t border-subtle">
     <div class="max-w-3xl mx-auto px-6 py-20 md:py-24">
       <p class="eyebrow mb-4">Beliefs</p>
-      <h2 class="mb-10">A few things I believe.</h2>
+      <h2 class="mb-10">A few things I believe</h2>
 
       <ol class="space-y-8" style="counter-reset: belief;">
         <li class="pl-12 relative" style="counter-increment: belief;">
@@ -91,7 +120,7 @@ const structuredData = siteGraph({
         <li class="pl-12 relative" style="counter-increment: belief;">
           <h3 class="mb-2">You're not behind.</h3>
           <p>
-            A lot of forces converge to make us feel that way (me included). Some intentional (fear is an effective motivational lever), some not (ingrained scripts and habits). They all push us to rush and to miss what's available right now. You're right where you need to be, and probably further along than you think.
+            A lot of forces converge to make us feel that way... some intentional (fear is an effective manipulation lever), some not (ingrained scripts and habits). They all push us to rush and to miss what's available right now. You're right where you need to be, and probably further along than you think.
           </p>
         </li>
         <li class="pl-12 relative" style="counter-increment: belief;">
@@ -121,27 +150,81 @@ const structuredData = siteGraph({
 
   <!-- ─── What I can help with ─── -->
   <section class="border-t border-subtle">
-    <div class="max-w-3xl mx-auto px-6 py-20 md:py-24">
+    <div class="max-w-4xl mx-auto px-6 py-20 md:py-24">
       <p class="eyebrow mb-4">Engagement</p>
-      <h2 class="mb-6">A few of the things I can help with.</h2>
-      <p class="mb-8">
-        [DRAFT — short framing line about the spectrum of done-for-you ↔ done-with-you, before the list.]
+      <h2 class="mb-6">A few things I can help with</h2>
+      <p class="mb-12">
+        I think of tech consulting work as landing somewhere on a spectrum of done-for-you ↔ done-with-you, and the right mix is very individual. Whatever that ratio looks like, what I'm most excited about is helping you get mastery (not another ongoing cost or dependency, but confidence, autonomy and ability to get stuff done).
       </p>
 
-      <ul class="space-y-4">
-        <li class="flex gap-3">
-          <span aria-hidden="true" style="color: var(--color-accent);">&middot;</span>
-          <span>You know you're missing opportunities, but don't know where to start.</span>
-        </li>
-        <li class="flex gap-3">
-          <span aria-hidden="true" style="color: var(--color-accent);">&middot;</span>
-          <span>Your data is siloed; systems aren't talking; people are filling in the gap.</span>
-        </li>
-        <li class="flex gap-3 italic" style="color: var(--color-body-light);">
-          <span aria-hidden="true">&middot;</span>
-          <span>[DRAFT — third (and maybe fourth) item to round out the list.]</span>
-        </li>
-      </ul>
+      <div class="grid gap-5 md:grid-cols-3">
+        <article class="engagement-tile group relative overflow-hidden rounded-lg border bg-surface p-7 md:p-8 transition-all hover:-translate-y-0.5 hover:shadow-md" style="border-color: var(--color-border);">
+          <span class="tile-numeral" aria-hidden="true">01</span>
+          <h3 class="tile-label">Architecture</h3>
+          <p class="tile-body">Building custom tools, systems, agents, and automations.</p>
+        </article>
+
+        <article class="engagement-tile group relative overflow-hidden rounded-lg border bg-surface p-7 md:p-8 transition-all hover:-translate-y-0.5 hover:shadow-md" style="border-color: var(--color-border);">
+          <span class="tile-numeral" aria-hidden="true">02</span>
+          <h3 class="tile-label">Advisory</h3>
+          <p class="tile-body">Help evaluating AI tools, approaches, software options, and vendors so you can move forward with confidence.</p>
+        </article>
+
+        <article class="engagement-tile group relative overflow-hidden rounded-lg border bg-surface p-7 md:p-8 transition-all hover:-translate-y-0.5 hover:shadow-md" style="border-color: var(--color-border);">
+          <span class="tile-numeral" aria-hidden="true">03</span>
+          <h3 class="tile-label">Training</h3>
+          <p class="tile-body">Working with your team to build shared knowledge, rhythms, and success stories.</p>
+        </article>
+      </div>
+
+      <style>
+        .engagement-tile::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background-color: var(--color-accent);
+          transform-origin: left;
+          transition: transform 0.4s ease;
+        }
+        .engagement-tile:hover::before {
+          transform: scaleX(1.03);
+        }
+        .tile-numeral {
+          position: absolute;
+          top: 0.9rem;
+          right: 1.1rem;
+          font-family: var(--font-heading);
+          font-size: 0.75rem;
+          font-weight: 400;
+          letter-spacing: 0.08em;
+          color: var(--color-accent);
+          opacity: 0.6;
+        }
+        .tile-label {
+          font-family: var(--font-heading);
+          font-size: 1.5rem;
+          font-weight: 500;
+          line-height: 1.2;
+          letter-spacing: -0.01em;
+          color: var(--color-anchor);
+          margin-top: 0.25rem;
+          margin-bottom: 0.9rem;
+        }
+        html.dark .tile-label {
+          color: var(--color-text);
+        }
+        .tile-body {
+          font-size: 0.95rem;
+          line-height: 1.6;
+          color: var(--color-body);
+        }
+        html.dark .tile-body {
+          color: var(--color-muted);
+        }
+      </style>
     </div>
   </section>
 
@@ -150,8 +233,8 @@ const structuredData = siteGraph({
     <div class="max-w-3xl mx-auto px-6 py-20 md:py-24">
       <p class="eyebrow mb-4">Get in touch</p>
       <h2 class="mb-4">Let's talk.</h2>
-      <p class="mb-10 max-w-xl">
-        [DRAFT — a sentence or two inviting the right kind of inquiry. Friendly, unhurried, no pressure.]
+      <p class="mb-10">
+        If anything here resonates with you or you think you might be interested in working together, I'd love to hear from you. Happy to chat over email or schedule a call; just let me know what your prefer.
       </p>
       <ContactForm />
     </div>

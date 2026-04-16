@@ -28,3 +28,8 @@ pnpm-debug.log*
 
 # local working folders
 .assets
+
+# design source files (GIMP/Photoshop/Sketch — exports live in src/ or public/)
+*.xcf
+*.psd
+*.sketch

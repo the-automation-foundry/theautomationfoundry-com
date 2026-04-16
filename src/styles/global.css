@@ -36,6 +36,8 @@
    Light mode (default)
    ───────────────────────────────────────────── */
 html {
+  /* Base font-size: everything else is in rem/em so the whole scale cascades. */
+  font-size: 18px;
   background-color: var(--color-base);
   background-image:
     radial-gradient(ellipse at top right, rgba(78, 106, 120, 0.06) 0%, transparent 60%),
@@ -104,8 +106,8 @@ h4 {
   color: var(--color-primary);
 }
 
-p {
-  font-size: 0.95rem;
+p, li {
+  font-size: 1.05rem;
   line-height: 1.7;
   color: var(--color-body);
 }
@@ -149,6 +151,14 @@ html.dark .text-muted {
 
 .border-subtle {
   border-color: var(--color-border);
+}
+
+/* Form labels — Current in light mode, Limestone-92% in dark for contrast */
+.form-label {
+  color: var(--color-primary);
+}
+html.dark .form-label {
+  color: var(--color-text);
 }
 
 /* Show/hide based on theme — used for theme-paired assets like the logo */

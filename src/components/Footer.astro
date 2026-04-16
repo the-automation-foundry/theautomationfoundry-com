@@ -3,7 +3,11 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="border-t border-subtle mt-24">
-  <div class="max-w-6xl mx-auto px-6 py-8 flex items-center justify-center text-xs tracking-wide" style="color: var(--color-body-light); font-family: var(--font-body);">
-    <p>&copy; {year} The Automation Foundry &middot; Thoughtful technology craftsmanship.</p>
+  <div class="max-w-6xl mx-auto px-6 py-8 flex items-center justify-center" style="color: var(--color-body-light); font-family: var(--font-body);">
+    <p class="text-xs">
+      <strong class="font-bold text-sm">&copy; {year} The Automation Foundry</strong>
+      <span class="mx-4">⁜</span>
+      <span class="font-serif text-sm" style="color: var(--color-accent);">Thoughtful Technology Craftsmanship</span>
+    </p>
   </div>
 </footer>
