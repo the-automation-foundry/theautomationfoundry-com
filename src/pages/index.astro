@@ -1,121 +1,151 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import PostCard from '../components/PostCard.astro';
-import { getCollection } from 'astro:content';
-
-const allWriting = await getCollection('writing', ({ data }) => !data.draft);
-const latestWriting = allWriting
-  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
-  .slice(0, 3);
-
-const allProjects = await getCollection('projects');
-const featuredProjects = allProjects
-  .filter((p) => p.data.featured)
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-  .slice(0, 3);
-
-const displayProjects = featuredProjects.length > 0
-  ? featuredProjects
-  : allProjects
-      .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-      .slice(0, 3);
+import ContactForm from '../components/ContactForm.astro';
 ---
 
-<BaseLayout>
-  <!-- Hero / Intro -->
-  <section class="py-20 md:py-28">
-    <div class="max-w-4xl mx-auto px-6">
-      <p class="text-sm uppercase tracking-widest text-[var(--color-accent)] mb-4">The Automation Foundry</p>
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-        We build systems that<br />work while you sleep.
+<BaseLayout
+  title="The Automation Foundry"
+  description="A solo digital studio helping entrepreneurs and business leaders use AI to focus, strategize, and thrive."
+>
+  <!-- ─── Hero ─── -->
+  <section class="relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-6 pt-20 pb-16 md:pt-28 md:pb-24">
+      <p class="eyebrow mb-4">The Automation Foundry</p>
+      <h1 class="mb-6">
+        A solo digital studio helping entrepreneurs and business leaders use AI to focus, strategize, and thrive.
       </h1>
-      <p class="mt-6 text-lg md:text-xl text-muted leading-relaxed max-w-2xl">
-        The Automation Foundry designs and builds custom automation solutions
-        that transform how businesses operate. From workflow automation to
-        intelligent data pipelines, we help teams reclaim their time.
+      <p class="lead max-w-2xl mb-8">
+        <!-- DRAFT — replace with the lead paragraph we settle on. -->
+        Thoughtful systems, automation, and AI integration — built at a human pace, with the heft of craft.
       </p>
       <a
-        href="/contact"
-        class="inline-block mt-8 px-6 py-3 bg-[var(--color-accent)] text-white rounded-lg font-medium text-sm uppercase tracking-wide hover:bg-[var(--color-accent-hover)] transition-colors"
+        href="#contact"
+        class="inline-block px-6 py-3 rounded-md text-xs uppercase tracking-widest font-medium text-white transition-colors"
+        style="background-color: var(--color-accent);"
+        onmouseover="this.style.backgroundColor='var(--color-accent-hover)'"
+        onmouseout="this.style.backgroundColor='var(--color-accent)'"
       >
-        Get in Touch
+        Start a conversation
       </a>
     </div>
   </section>
 
-  <!-- Divider -->
-  <div class="max-w-6xl mx-auto px-6">
-    <hr class="border-subtle" />
-  </div>
-
-  <!-- Featured Projects -->
-  {displayProjects.length > 0 && (
-    <section class="py-20 md:py-24">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="flex items-center justify-between mb-12">
-          <h2 class="text-2xl md:text-3xl font-bold">Featured Projects</h2>
-          <a href="/projects" class="text-sm text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] uppercase tracking-wide transition-colors">
-            View All &rarr;
-          </a>
-        </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {displayProjects.map((project) => (
-            <ProjectCard
-              title={project.data.title}
-              description={project.data.description}
-              image={project.data.image}
-              imageAlt={project.data.imageAlt}
-              tags={project.data.tags}
-              slug={project.id}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- Divider -->
-  <div class="max-w-6xl mx-auto px-6">
-    <hr class="border-subtle" />
-  </div>
-
-  <!-- Latest Writing -->
-  {latestWriting.length > 0 && (
-    <section class="py-20 md:py-24">
-      <div class="max-w-3xl mx-auto px-6">
-        <div class="flex items-center justify-between mb-12">
-          <h2 class="text-2xl md:text-3xl font-bold">Latest Writing</h2>
-          <a href="/writing" class="text-sm text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] uppercase tracking-wide transition-colors">
-            View All &rarr;
-          </a>
-        </div>
-        {latestWriting.map((post) => (
-          <PostCard
-            title={post.data.title}
-            description={post.data.description}
-            pubDate={post.data.pubDate}
-            tags={post.data.tags}
-            slug={post.id}
-          />
-        ))}
-      </div>
-    </section>
-  )}
-
-  <!-- CTA -->
-  <section class="py-20 md:py-28 text-center">
-    <div class="max-w-2xl mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-bold">Ready to automate?</h2>
-      <p class="mt-4 text-lg text-muted">
-        Let's talk about how automation can transform your business.
-      </p>
-      <a
-        href="/contact"
-        class="inline-block mt-8 px-6 py-3 bg-[var(--color-accent)] text-white rounded-lg font-medium text-sm uppercase tracking-wide hover:bg-[var(--color-accent-hover)] transition-colors"
+  <!-- ─── Tagline strip ─── -->
+  <section class="border-y border-subtle">
+    <div class="max-w-4xl mx-auto px-6 py-10 text-center">
+      <p
+        class="italic"
+        style="font-family: var(--font-heading); font-size: 1.2rem; font-weight: 400; color: var(--color-anchor);"
       >
-        Start a Conversation
-      </a>
+        Thoughtful technology craftsmanship.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── Hi, I'm Nick ─── -->
+  <section class="max-w-3xl mx-auto px-6 py-20 md:py-24">
+    <p class="eyebrow mb-4">About</p>
+    <h2 class="mb-6">Hi, I'm Nick Parsons.</h2>
+    <p class="mb-4">
+      I'm the founder of The Automation Foundry. I like to think of myself as a craftsman of technology, bringing together the benefits of modern tech and the sturdiness of old-fashioned values and standards of excellence.
+    </p>
+    <p class="mb-4">
+      I do a lot of thinking — sometimes to a fault, and to the extent that it's a running family joke that led my wife to jestingly buy me a t-shirt that says in large block letters, "Hold on, let me overthink this." But I believe that in this era of instant but questionable "solutions," and ratcheting pressure to go ever faster and do ever more, there's a place for deep thoughtfulness and intentionality — for slowing down to shift into a mode that's less reactive and more grounded in clarity on what really matters and where we're really going.
+    </p>
+    <p class="mb-4 italic" style="color: var(--color-body-light);">
+      [DRAFT — "Why tech?" paragraph goes here. The bridge between the thoughtful/slow inclination and the choice to work in software + AI.]
+    </p>
+  </section>
+
+  <!-- ─── What I believe ─── -->
+  <section class="border-t border-subtle">
+    <div class="max-w-3xl mx-auto px-6 py-20 md:py-24">
+      <p class="eyebrow mb-4">Beliefs</p>
+      <h2 class="mb-10">A few things I believe.</h2>
+
+      <ol class="space-y-8" style="counter-reset: belief;">
+        <li class="pl-12 relative" style="counter-increment: belief;">
+          <span
+            class="absolute left-0 top-0"
+            style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--color-neutral); content: counter(belief, decimal-leading-zero);"
+          ></span>
+          <h3 class="mb-2">Change is constant.</h3>
+          <p>
+            It's part of being human. Usually uncomfortable, frequently very difficult, but also where most opportunity, growth, and meaning are found. Getting curious, going deep, and avoiding the temptation to go it alone can open up surprising fruitfulness.
+          </p>
+        </li>
+        <li class="pl-12 relative" style="counter-increment: belief;">
+          <h3 class="mb-2">Hurry is toxic.</h3>
+          <p>
+            That's not to say there isn't a place for speed, or the burn of joyful exertion toward something that matters. But I'm increasingly convinced that hurry — and its offspring of shortcuts, distraction, and diffusion — is at odds with the best things of life.
+          </p>
+        </li>
+        <li class="pl-12 relative" style="counter-increment: belief;">
+          <h3 class="mb-2">You're not behind.</h3>
+          <p>
+            A lot of forces converge to make us feel that way (me included). Some intentional (fear is an effective motivational lever), some not (ingrained scripts and habits). They all push us to rush and to miss what's available right now. You're right where you need to be, and probably further along than you think.
+          </p>
+        </li>
+        <li class="pl-12 relative" style="counter-increment: belief;">
+          <h3 class="mb-2">We have a choice.</h3>
+          <p>
+            Technology — and AI specifically — is a multiplier. It can make us shallower and weaker, or it can help us become effective and alive. We can use it to bypass thinking or to refine and strengthen it. Agency is more important and more potent than ever, and it's a skill we can build and compound.
+          </p>
+        </li>
+      </ol>
+
+      <!-- Counter rendering helper: pseudo-element with content can't be set inline; use a small style block -->
+      <style>
+        ol[style*="counter-reset: belief"] > li::before {
+          content: counter(belief, decimal-leading-zero);
+          position: absolute;
+          left: 0;
+          top: 0;
+          font-family: var(--font-heading);
+          font-size: 1.5rem;
+          font-weight: 300;
+          color: var(--color-neutral);
+          line-height: 1;
+        }
+      </style>
+    </div>
+  </section>
+
+  <!-- ─── What I can help with ─── -->
+  <section class="border-t border-subtle">
+    <div class="max-w-3xl mx-auto px-6 py-20 md:py-24">
+      <p class="eyebrow mb-4">Engagement</p>
+      <h2 class="mb-6">A few of the things I can help with.</h2>
+      <p class="mb-8">
+        [DRAFT — short framing line about the spectrum of done-for-you ↔ done-with-you, before the list.]
+      </p>
+
+      <ul class="space-y-4">
+        <li class="flex gap-3">
+          <span aria-hidden="true" style="color: var(--color-accent);">&middot;</span>
+          <span>You know you're missing opportunities, but don't know where to start.</span>
+        </li>
+        <li class="flex gap-3">
+          <span aria-hidden="true" style="color: var(--color-accent);">&middot;</span>
+          <span>Your data is siloed; systems aren't talking; people are filling in the gap.</span>
+        </li>
+        <li class="flex gap-3 italic" style="color: var(--color-body-light);">
+          <span aria-hidden="true">&middot;</span>
+          <span>[DRAFT — third (and maybe fourth) item to round out the list.]</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ─── Contact ─── -->
+  <section id="contact" class="border-t border-subtle">
+    <div class="max-w-3xl mx-auto px-6 py-20 md:py-24">
+      <p class="eyebrow mb-4">Get in touch</p>
+      <h2 class="mb-4">Let's talk.</h2>
+      <p class="mb-10 max-w-xl">
+        [DRAFT — a sentence or two inviting the right kind of inquiry. Friendly, unhurried, no pressure.]
+      </p>
+      <ContactForm />
     </div>
   </section>
 </BaseLayout>
