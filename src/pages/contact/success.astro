@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Message Sent" description="Thank you for reaching out to The Automation Foundry.">
+  <section class="py-20 md:py-28 text-center">
+    <div class="max-w-2xl mx-auto px-6">
+      <p class="text-sm uppercase tracking-widest text-[var(--color-accent)] mb-4">Thank You</p>
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+        Message received.
+      </h1>
+      <p class="text-lg text-muted mb-8">
+        We'll get back to you as soon as possible. In the meantime, feel free
+        to explore our work.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/projects"
+          class="px-6 py-3 bg-[var(--color-accent)] text-white rounded-lg font-medium text-sm uppercase tracking-wide hover:bg-[var(--color-accent-hover)] transition-colors"
+        >
+          View Projects
+        </a>
+        <a
+          href="/"
+          class="px-6 py-3 border border-subtle rounded-lg font-medium text-sm uppercase tracking-wide hover:border-[var(--color-accent)] transition-colors"
+        >
+          Back Home
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
