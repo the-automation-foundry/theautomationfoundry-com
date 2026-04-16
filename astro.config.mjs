@@ -14,6 +14,7 @@ if (isKeystatic) {
 }
 
 export default defineConfig({
+  site: 'https://theautomationfoundry.com',
   output: 'static',
   adapter: isKeystatic
     ? (await import('@astrojs/netlify')).default()

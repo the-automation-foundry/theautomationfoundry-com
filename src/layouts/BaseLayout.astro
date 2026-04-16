@@ -9,9 +9,10 @@ interface Props {
   description?: string;
   image?: string;
   type?: string;
+  structuredData?: unknown;
 }
 
-const { title, description, image, type } = Astro.props;
+const { title, description, image, type, structuredData } = Astro.props;
 ---
 
 <!doctype html>
@@ -27,7 +28,7 @@ const { title, description, image, type } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;1,7..72,300;1,7..72,400&family=Manrope:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
-    <SEO title={title} description={description} image={image} type={type} />
+    <SEO title={title} description={description} image={image} type={type} structuredData={structuredData} />
   </head>
   <body class="min-h-screen flex flex-col">
     <Header />

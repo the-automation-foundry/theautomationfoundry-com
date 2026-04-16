@@ -4,13 +4,16 @@ interface Props {
   description?: string;
   image?: string;
   type?: string;
+  /** Optional JSON-LD object emitted as <script type="application/ld+json"> */
+  structuredData?: unknown;
 }
 
 const {
   title = 'The Automation Foundry',
-  description = 'We build automation solutions that transform how businesses operate.',
+  description = 'A solo digital studio helping entrepreneurs and business leaders use AI to focus, strategize, and thrive.',
   image = '/images/og-default.png',
   type = 'website',
+  structuredData,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://theautomationfoundry.com');
@@ -33,3 +36,7 @@ const fullTitle = title === 'The Automation Foundry' ? title : `${title} | The A
 <meta name="twitter:title" content={fullTitle} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={image} />
+
+{structuredData && (
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+)}
